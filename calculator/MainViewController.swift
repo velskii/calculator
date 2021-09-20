@@ -1,9 +1,11 @@
-//
-//  ViewController.swift
-//  calculator
-//
-//  Created by Jerry on 2021-09-19.
-//
+/*
+ Filename: MainViewController.swift
+ Author: Feiliang Zhou(Greg)
+ StudentId: 301216989
+ Data: September 20, 2021
+ App description: simple calculator
+ Version: 1.0
+*/
 
 import UIKit
 
