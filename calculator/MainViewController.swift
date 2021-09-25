@@ -10,6 +10,7 @@
 import UIKit
 
 /*
+ *https://spin.atomicobject.com/2017/07/18/swift-interface-builder/
  * I google this to get the buttons and lables with borders, it didn't show the borders in the interface builder, but it works in the emulator.
  */
 @IBDesignable

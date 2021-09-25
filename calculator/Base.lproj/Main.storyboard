@@ -33,7 +33,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8F-VK-EpC">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o8F-VK-EpC" customClass="DesignableButton" customModule="calculator" customModuleProvider="target">
                                 <rect key="frame" x="116" y="714" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.68662065269999994" green="0.91794270280000001" blue="0.94822579620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -84,7 +84,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLd-S6-IKV">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fLd-S6-IKV" customClass="DesignableButton" customModule="calculator" customModuleProvider="target">
                                 <rect key="frame" x="30" y="624" width="90" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.68662065269999994" green="0.91794270280000001" blue="0.94822579620000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -362,7 +362,7 @@
                                 <color key="backgroundColor" red="0.24180757999999999" green="0.7090442777" blue="0.58271431920000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jKc-eW-ty4">
-                                <rect key="frame" x="31" y="215" width="352" height="138"/>
+                                <rect key="frame" x="31" y="218" width="352" height="138"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="60"/>
                                 <nil key="textColor"/>
@@ -377,7 +377,7 @@
                                 </userDefinedRuntimeAttributes>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1-1=0" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L55-vs-XJN">
-                                <rect key="frame" x="31" y="121" width="352" height="101"/>
+                                <rect key="frame" x="31" y="119" width="352" height="101"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
@@ -402,8 +402,14 @@
         </scene>
     </scenes>
     <designables>
+        <designable name="fLd-S6-IKV">
+            <size key="intrinsicContentSize" width="38" height="50"/>
+        </designable>
         <designable name="mBo-ie-QIJ">
             <size key="intrinsicContentSize" width="65" height="50"/>
+        </designable>
+        <designable name="o8F-VK-EpC">
+            <size key="intrinsicContentSize" width="43" height="50"/>
         </designable>
     </designables>
     <resources>
