@@ -2,9 +2,9 @@
  *Filename          : MainViewController.swift
  *Author            : Feiliang Zhou(Greg)
  *StudentId         : 301216989
- *Data              : September 20, 2021
+ *Date              : September 20, 2021
  *App description   : simple calculator
- *Version           : 1.0
+ *Version           : 2.0
 */
 
 import UIKit
@@ -118,15 +118,128 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    var numStack:[Double] = []
+    var opStack:[String] = []
+    var operatorJustClicked:Bool = false
+    var result:Double = 0
 
-    @IBAction func zeroButton(_ sender: Any) {
+    @IBOutlet weak var resultArea: UILabel!
+    
+    @IBOutlet weak var procedureArea: UILabel!
+    
+    // when operator buttons being clicked, computing happends
+    @IBAction func operatorButton(_ sender: UIButton) {
+        var result:Double = 0
+        switch sender.titleLabel?.text
+        {
+        case "+":
+            self.procedureArea.text!.append(self.resultArea.text! + "+")
+            numStack.append(Double(self.resultArea.text!)!)
+            opStack.append("+")
+            operatorJustClicked = true
+        case "-":
+            self.procedureArea.text!.append(self.resultArea.text! + "-")
+            numStack.append(Double(self.resultArea.text!)!)
+            opStack.append("-")
+            operatorJustClicked = true
+        case "÷":
+            self.procedureArea.text!.append(self.resultArea.text! + "÷")
+            numStack.append(Double(self.resultArea.text!)!)
+            opStack.append("÷")
+            operatorJustClicked = true
+        case "x":
+            self.procedureArea.text!.append(self.resultArea.text! + "x")
+            numStack.append(Double(self.resultArea.text!)!)
+            opStack.append("x")
+            operatorJustClicked = true
+        case "=":
+            numStack.append(Double(self.resultArea.text!)!)
+            result = numStack.removeFirst()
+            if ((opStack.count < 1) || (numStack.count < 1)) {
+                break
+            }
+            // get the operation out of the stack and do the calculation one by one.
+            for num in numStack {
+                switch String(opStack.removeFirst())
+                {
+                case "÷":
+                    result = result / num
+                case "x":
+                    result = result * num
+                case "+":
+                    result = result + num
+                case "-":
+                    result = result - num
+                default: break
+                }
+            }
+            break
+        default:
+            break
+        }
+        if (result != 0) {
+            self.procedureArea.text!.append(self.resultArea.text! + "=" + String(result))
+            self.resultArea.text = String(result)
+        }
+        
+    }
+   
+    //here are all the number buttons and dot button, when these buttons being clicked, the current number is influenced
+    @IBAction func numberButton(_ sender: UIButton) {
+        if (operatorJustClicked) {
+            self.resultArea.text = "0"
+            operatorJustClicked = false
+        }
+        switch sender.titleLabel?.text
+        {
+        case ".":
+            if(self.resultArea.text!.contains(".")){
+                break;
+            }
+            self.resultArea.text!.append(sender.titleLabel!.text!)
+        case "0":
+            if (self.resultArea.text == "0") {
+                break;
+            }
+            self.resultArea.text!.append(sender.titleLabel!.text!)
+        default:
+            if (self.resultArea.text == "0") {
+                self.resultArea.text = ""
+            }
+            self.resultArea.text!.append(sender.titleLabel!.text!)
+        }
+        
     }
     
-    @IBAction func oneButton(_ sender: UIButton) {
-    }
-    @IBAction func twoButton(_ sender: UIButton) {
-    }
-    @IBAction func threeButton(_ sender: UIButton) {
+    //all the function buttons are here, they can change the value of the current number
+    @IBAction func specialbutton(_ sender: UIButton) {
+        switch sender.titleLabel?.text
+        {
+        case "AC":
+            self.resultArea.text = "0"
+            self.procedureArea.text = ""
+            opStack.removeAll()
+            numStack.removeAll()
+        case "b":
+            self.resultArea.text?.removeLast()
+            if(self.resultArea.text == "") {
+                self.resultArea.text = "0"
+            }
+        case "%":
+            if (self.resultArea.text != "0") {
+                self.resultArea.text = String(Double(self.resultArea.text!)! * 0.01)
+            }
+        case "+/-":
+            var result_string:String = self.resultArea.text!
+            if (result_string.contains("-")) {
+                result_string.removeFirst()
+            } else {
+                result_string.insert("-", at: result_string.startIndex)
+            }
+            self.resultArea.text = result_string
+        default: break
+        }
     }
 }
 
