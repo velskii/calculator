@@ -126,8 +126,52 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var resultArea: UILabel!
     
+    @IBOutlet weak var resultArea1: UILabel!
+    
     @IBOutlet weak var procedureArea: UILabel!
     
+    @IBAction func landscopeButtion(_ sender: UIButton) {
+        switch sender.titleLabel?.text
+        {
+        case "Rand":
+            self.resultArea.text = String(arc4random())
+        case "x²":
+            self.resultArea.text = String(Double(self.resultArea.text!)! * Double(self.resultArea.text!)!)
+        case "²√ˣ":
+            self.resultArea.text = String(
+                sqrt(Double(self.resultArea.text!)!)
+            )
+        case "π":
+            self.resultArea.text = "3.1415926"
+        case "sin":
+            self.resultArea.text = String(
+                sin(Double(self.resultArea.text!)!)
+            )
+        case "cos":
+            self.resultArea.text = String(
+                cos(Double(self.resultArea.text!)!)
+            )
+        case "tan":
+            self.resultArea.text = String(
+                tan(Double(self.resultArea.text!)!)
+            )
+        case "cot":
+            self.resultArea.text = String(
+                tan(Double(self.resultArea.text!)!) * cos(Double(self.resultArea.text!)!)
+            )
+        case "sec":
+            self.resultArea.text = String(
+                sin(Double(self.resultArea.text!)!) * tan(Double(self.resultArea.text!)!)
+            )
+        case "cosec":
+            self.resultArea.text = String(
+                1/(sin(Double(self.resultArea.text!)!) * tan(Double(self.resultArea.text!)!))
+            )
+        default:
+            break;
+        }
+        self.resultArea1.text =  self.resultArea.text
+    }
     // when operator buttons being clicked, computing happends
     @IBAction func operatorButton(_ sender: UIButton) {
         var result:Double = 0
@@ -182,6 +226,7 @@ class MainViewController: UIViewController {
             self.procedureArea.text!.append(self.resultArea.text! + "=" + String(result))
             self.resultArea.text = String(result)
         }
+        self.resultArea1.text =  self.resultArea.text
         
     }
    
@@ -209,6 +254,7 @@ class MainViewController: UIViewController {
             }
             self.resultArea.text!.append(sender.titleLabel!.text!)
         }
+        self.resultArea1.text =  self.resultArea.text
         
     }
     
@@ -240,6 +286,7 @@ class MainViewController: UIViewController {
             self.resultArea.text = result_string
         default: break
         }
+        self.resultArea1.text =  self.resultArea.text
     }
 }
 
