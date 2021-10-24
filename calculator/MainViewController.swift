@@ -2,9 +2,9 @@
  *Filename          : MainViewController.swift
  *Author            : Feiliang Zhou(Greg)
  *StudentId         : 301216989
- *Date              : September 20, 2021
+ *Date              : October 24, 2021
  *App description   : simple calculator
- *Version           : 2.0
+ *Version           : 3.0
 */
 
 import UIKit
@@ -124,12 +124,24 @@ class MainViewController: UIViewController {
     var operatorJustClicked:Bool = false
     var result:Double = 0
 
+    /**
+     * the computing result area
+     */
     @IBOutlet weak var resultArea: UILabel!
     
+    /**
+     * the computing result area in the landscope orientation
+     */
     @IBOutlet weak var resultArea1: UILabel!
     
+    /**
+     * the computing process area
+     */
     @IBOutlet weak var procedureArea: UILabel!
     
+    /**
+     * buttons show up when in the landscope orientation
+     */
     @IBAction func landscopeButtion(_ sender: UIButton) {
         switch sender.titleLabel?.text
         {
